@@ -1,41 +1,49 @@
 # Stock Market Data Pipeline using Apache NiFi
 
-## About the Project
+## Overview
 
-This project uses Apache NiFi to collect stock market data, process JSON responses, and save the results in a structured format.
+This project demonstrates a data pipeline designed to process stock market data using Apache NiFi. It focuses on JSON ingestion, record transformation, and structured output for downstream analysis.
 
-The goal is to build a simple data flow that demonstrates how data can be fetched from an API, transformed, and prepared for further analysis.
+## Architecture
 
-## Tools Used
+The pipeline follows a simple data processing workflow:
+
+1. **Data Ingestion** – Read stock market data from a JSON source.
+2. **Record Splitting** – Separate multiple stock records into individual entries.
+3. **Field Extraction** – Extract relevant fields such as stock symbol, company name, price, and timestamp.
+4. **Data Transformation** – Prepare records in a consistent JSON format.
+5. **Output** – Produce structured stock records for further processing or storage.
+
+## Technology Stack
 
 - Apache NiFi
-- REST API
 - JSON
-- GitHub
+- REST API integration
+- Git and GitHub
 
-## Pipeline Flow
-
-1. Fetch stock market data from an API.
-2. Extract the required fields from the JSON response.
-3. Transform the data into a structured format.
-4. Save the processed data to a file.
-
-## Project Structure
+## Repository Structure
 
 ```text
 nifi-stock-market-pipeline/
 ├── README.md
+├── pipeline_design.md
 ├── nifi_stock_pipeline.json
-└── sample_stock_data.json
+├── sample_stock_data.json
+└── sample_output.json
 ```
 
-## Current Status
+## Data Format
 
-The project is being developed. The NiFi flow and sample data will be added as the implementation progresses.
+The pipeline uses JSON input containing stock records and produces structured JSON output. The sample files illustrate the expected input and output formats.
 
-## Future Improvements
+## Potential Extensions
 
-- Connect a live stock market API.
-- Add data validation.
-- Store processed data in a database.
-- Handle API errors and missing values.
+- Integrate a live stock market data API.
+- Add data validation and error handling.
+- Store processed records in a database.
+- Schedule recurring data ingestion.
+- Add monitoring and logging.
+
+## Notes
+
+Sample stock values are illustrative and should not be interpreted as live market prices.
