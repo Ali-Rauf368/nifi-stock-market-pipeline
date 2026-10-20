@@ -1,0 +1,40 @@
+# Running the Stock Data Validator
+
+## Prerequisites
+
+- Python 3.9 or later
+- Git (optional, if cloning the repository)
+
+No third-party Python packages are required.
+
+## Run Locally
+
+1. Clone or download this repository.
+2. Open a terminal in the project directory.
+3. Run the validator:
+
+```bash
+python validate_stock_data.py
+```
+
+On some systems, use:
+
+```bash
+python3 validate_stock_data.py
+```
+
+## Expected Output
+
+The script checks the records in `sample_stock_data.json` and prints whether each record is valid or invalid.
+
+A summary at the end reports the number of valid and invalid records.
+
+## Input File
+
+The validator expects a JSON file containing a top-level `stocks` array.
+
+## Troubleshooting
+
+- **File not found:** Ensure `sample_stock_data.json` is in the same directory as the Python script.
+- **Invalid JSON:** Check that the input file contains valid JSON syntax.
+- **Python command not found:** Install Python and make sure it is available in your terminal.
