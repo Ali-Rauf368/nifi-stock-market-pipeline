@@ -1,28 +1,54 @@
 
 {
-  "project": "Stock Market Data Pipeline",
-  "description": "Sample stock data for an Apache NiFi data flow",
+  "project_name": "Stock Market Data Pipeline",
+  "description": "A NiFi pipeline design for ingesting and transforming stock market data.",
+  "input": {
+    "format": "JSON",
+    "source": "Sample stock market data",
+    "record_collection": "stocks"
+  },
   "processors": [
     {
       "name": "GenerateFlowFile",
-      "purpose": "Generate sample stock JSON data"
+      "responsibility": "Provide sample JSON data for pipeline testing"
     },
     {
       "name": "SplitJson",
-      "purpose": "Split the stocks array into individual records"
+      "responsibility": "Split the stocks array into individual records"
     },
     {
       "name": "EvaluateJsonPath",
-      "purpose": "Extract stock fields from each JSON record"
+      "responsibility": "Extract stock fields from each record"
     },
     {
       "name": "AttributesToJSON",
-      "purpose": "Create a flat JSON record"
+      "responsibility": "Prepare structured JSON output"
     },
     {
       "name": "LogAttribute",
-      "purpose": "Log processed stock records"
+      "responsibility": "Log processed records for verification"
     }
   ],
-  "note": "This file documents the planned flow. It is not an importable Apache NiFi flow definition."
+  "connections": [
+    {
+      "from": "GenerateFlowFile",
+      "to": "SplitJson"
+    },
+    {
+      "from": "SplitJson",
+      "to": "EvaluateJsonPath"
+    },
+    {
+      "from": "EvaluateJsonPath",
+      "to": "AttributesToJSON"
+    },
+    {
+      "from": "AttributesToJSON",
+      "to": "LogAttribute"
+    }
+  ],
+  "output": {
+    "format": "JSON",
+    "example_file": "sample_output.json"
+  }
 }
