@@ -1,0 +1,29 @@
+
+{
+  "stocks": [
+    {
+      "symbol": "AAPL",
+      "company": "Apple Inc.",
+      "price": 230.50,
+      "currency": "USD",
+      "volume": 52000000,
+      "timestamp": "2026-10-20T14:30:00Z"
+    },
+    {
+      "symbol": "MSFT",
+      "company": "Microsoft Corporation",
+      "price": 510.25,
+      "currency": "USD",
+      "volume": 18000000,
+      "timestamp": "2026-10-20T14:30:00Z"
+    },
+    {
+      "symbol": "GOOGL",
+      "company": "Alphabet Inc.",
+      "price": 250.75,
+      "currency": "USD",
+      "volume": 12000000,
+      "timestamp": "2026-10-20T14:30:00Z"
+    }
+  ]
+}
