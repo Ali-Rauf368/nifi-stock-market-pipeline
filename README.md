@@ -2,48 +2,57 @@
 
 ## Overview
 
-This project demonstrates a data pipeline designed to process stock market data using Apache NiFi. It focuses on JSON ingestion, record transformation, and structured output for downstream analysis.
+A stock market data engineering project focused on JSON data ingestion, validation, transformation, and structured output. The repository includes sample datasets, pipeline design documentation, Python validation logic, unit tests, and automated testing with GitHub Actions.
+
+## Technologies
+
+- Apache NiFi
+- Python
+- JSON
+- Git and GitHub
+- GitHub Actions
 
 ## Architecture
 
-The pipeline follows a simple data processing workflow:
+1. Read stock records from JSON.
+2. Split the stock collection into individual records.
+3. Extract relevant stock fields.
+4. Prepare structured JSON output.
+5. Validate data quality.
+6. Run automated Python tests.
 
-1. **Data Ingestion** – Read stock market data from a JSON source.
-2. **Record Splitting** – Separate multiple stock records into individual entries.
-3. **Field Extraction** – Extract relevant fields such as stock symbol, company name, price, and timestamp.
-4. **Data Transformation** – Prepare records in a consistent JSON format.
-5. **Output** – Produce structured stock records for further processing or storage.
+## Repository Contents
 
-## Technology Stack
+- `sample_stock_data.json` — sample input records.
+- `sample_output.json` — example processed record.
+- `nifi_stock_pipeline.json` — pipeline specification.
+- `pipeline_design.md` — pipeline design.
+- `architecture.md` — architecture overview.
+- `data_quality_rules.md` — data validation rules.
+- `validate_stock_data.py` — Python validation script.
+- `test_validate_stock_data.py` — unit tests.
+- `RUNNING.md` — execution instructions.
+- `.github/workflows/python-tests.yml` — automated test workflow.
 
-- Apache NiFi
-- JSON
-- REST API integration
-- Git and GitHub
+## Running the Validator
 
-## Repository Structure
+Python 3.9 or later is recommended.
 
-```text
-nifi-stock-market-pipeline/
-├── README.md
-├── pipeline_design.md
-├── nifi_stock_pipeline.json
-├── sample_stock_data.json
-└── sample_output.json
+```bash
+python validate_stock_data.py
 ```
 
-## Data Format
+Run the unit tests with:
 
-The pipeline uses JSON input containing stock records and produces structured JSON output. The sample files illustrate the expected input and output formats.
+```bash
+python -m unittest discover -v
+```
 
-## Potential Extensions
+## Project Status
 
-- Integrate a live stock market data API.
-- Add data validation and error handling.
-- Store processed records in a database.
-- Schedule recurring data ingestion.
-- Add monitoring and logging.
+The sample data, Python validation, and automated testing workflow are included in the repository. The Apache NiFi flow design is documented; the actual NiFi flow still needs to be implemented and verified.
 
-## Notes
+## Data Disclaimer
 
-Sample stock values are illustrative and should not be interpreted as live market prices.
+The included stock prices are illustrative sample values and do not represent verified live market data.
+
